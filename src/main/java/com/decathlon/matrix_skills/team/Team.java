@@ -13,13 +13,13 @@ public class Team {
 
     @Id
     @Column(name = "team_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long teamId;
 
     @Column(name = "team_name", nullable = false)
     private String teamName;
 
-    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @JoinColumn(name = "team")
     private List<Partner> partners;
 

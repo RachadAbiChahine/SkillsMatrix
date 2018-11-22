@@ -28,7 +28,7 @@ public class TeamService {
         this.modelMapper = modelMapper;
     }
 
-
+@Transactional
     public TeamDTO addTeam(String teamName) throws TeamAlreadyExistException {
         Team team;
         team = teamRepository.findFirstByTeamNameIgnoreCase(teamName);

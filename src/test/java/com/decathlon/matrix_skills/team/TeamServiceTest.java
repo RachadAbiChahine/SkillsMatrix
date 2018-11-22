@@ -1,16 +1,13 @@
 package com.decathlon.matrix_skills.team;
 
 import com.decathlon.matrix_skills.Application;
-
 import com.decathlon.matrix_skills.team.dto.TeamDTO;
 import com.decathlon.matrix_skills.team.errors.TeamAlreadyExistException;
 import com.decathlon.matrix_skills.team.errors.TeamNotFoundException;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.jdbc.EmbeddedDatabaseConnection;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
