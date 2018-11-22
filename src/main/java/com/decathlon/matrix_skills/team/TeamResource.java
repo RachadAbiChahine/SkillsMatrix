@@ -27,8 +27,7 @@ public class TeamResource {
 
 
     @PostMapping(value = "/{teamName}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<TeamDTO> addTeam(@Valid
-                                           @Size(max = 255)
+    public ResponseEntity<TeamDTO> addTeam(@Size(max = 255)
                                            @PathVariable("teamName") String teamName) throws TeamAlreadyExistException {
         TeamDTO teamDTO = teamService.addTeam(teamName);
         return ResponseEntity.ok(teamDTO);
@@ -36,17 +35,14 @@ public class TeamResource {
 
 
     @DeleteMapping("/{teamName}")
-    public ResponseEntity<List<TeamDTO>> deleteTam(@Valid
-                                                   @Size(max = 255)
+    public ResponseEntity<List<TeamDTO>> deleteTeam(@Size(max = 255)
                                                    @PathVariable("teamName") String teamName) throws TeamNotFoundException {
-
         List<TeamDTO> teamDTOS = teamService.delete(teamName);
         return ResponseEntity.ok(teamDTOS);
     }
 
     @GetMapping("/{teamName}")
-    public ResponseEntity<TeamDTO> getTeam(@Valid
-                                           @Size(max = 255)
+    public ResponseEntity<TeamDTO> getTeam(@Size(max = 255)
                                            @PathVariable("teamName") String teamName) throws TeamNotFoundException {
         TeamDTO teamDTO = teamService.getTeam(teamName);
         return ResponseEntity.ok(teamDTO);
@@ -59,7 +55,6 @@ public class TeamResource {
         List<TeamDTO> teamDTOS = teamService.getAllTeams();
         return ResponseEntity.ok(teamDTOS);
     }
-
 
 
 }
