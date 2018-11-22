@@ -1,6 +1,6 @@
-#To run application localy
+# To run application localy
 
-*use this vm argument: 
+* use this vm argument: 
 --spring.profiles.active=dev
 
 # DATA BASE 
