@@ -61,18 +61,18 @@ public class TeamService {
      * @throws TeamNotFoundException
      */
     public TeamDTO getTeam(String teamName) throws TeamNotFoundException {
-        TeamDTO teamDTO = modelMapper.map(teamRepository.findFirstByTeamNameIgnoreCase(teamName), TeamDTO.class);
-        if (teamDTO == null) {
+        Team team =teamRepository.findFirstByTeamNameIgnoreCase(teamName);
+        if (team == null) {
             throw new TeamNotFoundException();
         }
-        return teamDTO;
+        return modelMapper.map(team,TeamDTO.class);
     }
 
-
+    //TODO change it to Page
     public List<TeamDTO> getAllTeams() throws TeamNotFoundException {
         List<Team> teams = teamRepository.findAll();
         ;
-        if (teams == null) {
+        if (teams == null||teams.size()==0) {
             throw new TeamNotFoundException();
         } else {
             return teams.stream().map(TeamDTO::new).collect(Collectors.toList());
