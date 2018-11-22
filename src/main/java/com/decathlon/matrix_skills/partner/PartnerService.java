@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PartnerService {
@@ -41,11 +42,26 @@ public class PartnerService {
     }
 
     public PartnerResponseDTO deletePartner(Long partnerId) throws PartnerNotFoundException {
-       List<Partner>  partners = partnerRepository.deleteByPartnerId(partnerId);
-        if (partners == null ||partners.size()==0) {
+        List<Partner> partners = partnerRepository.deleteByPartnerId(partnerId);
+        if (partners == null || partners.size() == 0) {
             throw new PartnerNotFoundException();
         }
 
         return modelMapper.map(partners.get(0), PartnerResponseDTO.class);
+    }
+
+
+    public PartnerResponseDTO getPartner(Long partnerId) throws PartnerNotFoundException {
+        Partner partner = partnerRepository.findFirstByPartnerId(partnerId);
+        if (partner == null) {
+            throw new PartnerNotFoundException();
+        }
+        return modelMapper.map(partner, PartnerResponseDTO.class);
+    }
+
+    public List<PartnerResponseDTO> getAllPartners() {
+        List<Partner> partners = partnerRepository.findAll();
+        List<PartnerResponseDTO> partnerResponseDTOS = null;
+        return partners.stream().map(entity -> modelMapper.map(entity, PartnerResponseDTO.class)).collect(Collectors.toList());
     }
 }
