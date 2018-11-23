@@ -30,6 +30,7 @@ public class PartnerService {
         return modelMapper.map(partner, PartnerResponseDTO.class);
     }
 
+    @Transactional
     public PartnerResponseDTO editPartner(Long partnerId, PartnerDTO partnerDTO) throws PartnerNotFoundException {
         Partner partner = partnerRepository.findFirstByPartnerId(partnerId);
         if (partner == null) {
@@ -41,16 +42,17 @@ public class PartnerService {
         }
     }
 
+    @Transactional
     public PartnerResponseDTO deletePartner(Long partnerId) throws PartnerNotFoundException {
         List<Partner> partners = partnerRepository.deleteByPartnerId(partnerId);
-        if (partners == null || partners.size() == 0) {
+        if (partners == null || partners.isEmpty()) {
             throw new PartnerNotFoundException();
         }
 
         return modelMapper.map(partners.get(0), PartnerResponseDTO.class);
     }
 
-
+    @Transactional
     public PartnerResponseDTO getPartner(Long partnerId) throws PartnerNotFoundException {
         Partner partner = partnerRepository.findFirstByPartnerId(partnerId);
         if (partner == null) {
@@ -59,9 +61,12 @@ public class PartnerService {
         return modelMapper.map(partner, PartnerResponseDTO.class);
     }
 
-    public List<PartnerResponseDTO> getAllPartners() {
+    @Transactional
+    public List<PartnerResponseDTO> getAllPartners() throws PartnerNotFoundException {
         List<Partner> partners = partnerRepository.findAll();
-        List<PartnerResponseDTO> partnerResponseDTOS = null;
+        if (partners == null || partners.isEmpty()) {
+            throw new PartnerNotFoundException();
+        }
         return partners.stream().map(entity -> modelMapper.map(entity, PartnerResponseDTO.class)).collect(Collectors.toList());
     }
 }

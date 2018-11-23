@@ -10,10 +10,7 @@ public class TeamDTO {
 
     public TeamDTO(){};
 
-    public TeamDTO(Long teamId, String teamName) {
-        this.teamId = teamId;
-        this.teamName = teamName;
-    }
+
 
     public TeamDTO(Team team){
         teamId=team.getTeamId();

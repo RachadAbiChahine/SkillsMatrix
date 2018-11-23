@@ -3,10 +3,7 @@ package com.decathlon.matrix_skills.partner.dto;
 import com.decathlon.matrix_skills.Skill.Skill;
 import com.decathlon.matrix_skills.partner.PartnerType;
 import com.decathlon.matrix_skills.team.Team;
-import com.fasterxml.jackson.annotation.JsonInclude;
 
-
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
 

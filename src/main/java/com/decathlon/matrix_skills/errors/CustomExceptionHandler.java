@@ -11,8 +11,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
@@ -61,8 +63,6 @@ public class CustomExceptionHandler {
             error.add(((PathImpl) constraintViolation.getPropertyPath()).getLeafNode().getName(), constraintViolation.getMessage());
 
         }
-
-
         return error;
     }
 
@@ -99,6 +99,7 @@ public class CustomExceptionHandler {
         ErrorDTO errorDTO = new ErrorDTO(e.getMessage());
         return errorDTO;
     }
+
     @ExceptionHandler(PartnerNotFoundException.class)
     @ResponseBody
     @ResponseStatus(HttpStatus.NOT_FOUND)

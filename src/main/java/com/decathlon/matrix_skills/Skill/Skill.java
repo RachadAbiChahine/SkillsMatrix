@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 @Table(name = "skill")
 public class Skill {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "skill_id")
     private int skillLevelId;
 

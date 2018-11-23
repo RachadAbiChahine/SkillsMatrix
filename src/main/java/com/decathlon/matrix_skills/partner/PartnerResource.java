@@ -4,7 +4,6 @@ import com.decathlon.matrix_skills.common.Constants;
 import com.decathlon.matrix_skills.partner.dto.PartnerDTO;
 import com.decathlon.matrix_skills.partner.dto.PartnerResponseDTO;
 import com.decathlon.matrix_skills.partner.errors.PartnerNotFoundException;
-import com.decathlon.matrix_skills.team.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -58,7 +57,7 @@ public class PartnerResource {
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<PartnerResponseDTO>>  findAllPartners(){
+    public ResponseEntity<List<PartnerResponseDTO>>  findAllPartners() throws PartnerNotFoundException {
         return ResponseEntity.ok(partnerService.getAllPartners());
     }
 }

@@ -1,8 +1,6 @@
 package com.decathlon.matrix_skills.errors;
 
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

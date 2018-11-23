@@ -11,19 +11,19 @@ public class PartnerType {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "partner_type_id")
-    int PartnerTypeId;
-    @Column(name = "type")
+    int partnerTypeId;
 
+    @Column(name = "type")
     @Enumerated(EnumType.STRING)
     EnumPartnerType partnerType;
 
 
     public int getPartnerTypeId() {
-        return PartnerTypeId;
+        return partnerTypeId;
     }
 
     public void setPartnerTypeId(int partnerTypeId) {
-        PartnerTypeId = partnerTypeId;
+        this.partnerTypeId = partnerTypeId;
     }
 
     public EnumPartnerType getPartnerType() {
@@ -59,7 +59,7 @@ public class PartnerType {
     @Override
     public String toString() {
         return "PartnerType{" +
-                "PartnerTypeId=" + PartnerTypeId +
+                "partnerTypeId=" + partnerTypeId +
                 ", partnerType=" + partnerType +
                 '}';
     }

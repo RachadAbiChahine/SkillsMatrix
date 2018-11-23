@@ -14,7 +14,7 @@ import java.util.List;
 public class Partner {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue (strategy = GenerationType.AUTO)
     @Column(name = "partner_id")
     private Long partnerId;
 
