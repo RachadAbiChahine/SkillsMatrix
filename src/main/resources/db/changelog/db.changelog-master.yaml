@@ -175,3 +175,15 @@ databaseChangeLog:
         sequenceName: hibernate_sequence
         startValue: 1
         minValue: 0
+
+- changeSet:
+    id: 7
+    author: aracha14
+    changes:
+    - createSequence:
+        incrementBy: 1
+        schemaName: public
+        sequenceName: hibernate_sequence
+        startValue: 1
+        minValue: 0
+
