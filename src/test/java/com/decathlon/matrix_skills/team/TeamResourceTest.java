@@ -9,7 +9,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentMatchers;
-import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -54,7 +53,6 @@ class TeamResourceTest {
 
     @PostConstruct
     void init() throws TeamAlreadyExistException {
-        MockitoAnnotations.initMocks(this);
         mockedTeamDto = new TeamDTO();
         this.mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
         mockedTeamDto.setTeamName(TEAM_NAME);

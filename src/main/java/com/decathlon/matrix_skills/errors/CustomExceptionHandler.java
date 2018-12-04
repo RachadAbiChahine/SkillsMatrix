@@ -8,6 +8,7 @@ import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.dao.InvalidDataAccessResourceUsageException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
@@ -51,6 +53,35 @@ public class CustomExceptionHandler {
         }
         return error;
     }
+
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    @ResponseBody
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorDTO handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException ex) {
+        ErrorDTO error = new ErrorDTO("BAD REQUEST", ex.getErrorCode());
+
+        error.add(ex.getName(), ex.getCause().getMessage());
+
+        return error;
+    }
+
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    @ResponseBody
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorDTO handleHttpMessageNotReadableException(HttpMessageNotReadableException ex) {
+
+        Throwable mostSpecificCause = ex.getMostSpecificCause();
+        ErrorDTO errorMessage;
+        if (mostSpecificCause != null) {
+            String exceptionName = mostSpecificCause.getClass().getName();
+            String message = mostSpecificCause.getMessage();
+            errorMessage = new ErrorDTO(exceptionName, message);
+        } else {
+            errorMessage = new ErrorDTO(ex.getMessage());
+        }
+        return errorMessage;
+    }
+
 
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseBody

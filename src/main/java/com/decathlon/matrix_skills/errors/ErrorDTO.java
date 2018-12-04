@@ -1,7 +1,10 @@
 package com.decathlon.matrix_skills.errors;
 
 
+import org.springframework.beans.factory.annotation.Value;
+
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +16,7 @@ public class ErrorDTO implements Serializable {
   private static final long serialVersionUID = -8189902525596349524L;
 
   private final String message;
-
+private LocalDateTime timeStamp = LocalDateTime.now();
 
   private final String description;
 
@@ -53,5 +56,13 @@ public class ErrorDTO implements Serializable {
 
   public List<FieldErrorDTO> getFieldErrors() {
     return fieldErrors;
+  }
+
+  public LocalDateTime getTimeStamp() {
+    return timeStamp;
+  }
+
+  public void setTimeStamp(LocalDateTime timeStamp) {
+    this.timeStamp = timeStamp;
   }
 }

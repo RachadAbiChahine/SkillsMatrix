@@ -5,14 +5,14 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 public class PartnerResponseDTO extends PartnerDTO {
 
-    private Long Id;
+    private Long id;
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     @Override

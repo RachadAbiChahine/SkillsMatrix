@@ -4,48 +4,46 @@
   <OriginalElement>23d86b48-df1f-4f63-92be-0b5ded68a46f.SCHEMA:matrix_db.public</OriginalElement>
   <nodes>
     <node x="266.0" y="499.0">23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.databasechangeloglock</node>
-    <node x="96.40277777777777" y="124.0">23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.partner</node>
-    <node x="231.0" y="0.0">23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.partner_type</node>
-    <node x="654.4027777777778" y="157.0">23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.skills_level</node>
-    <node x="0.0" y="0.0">23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.team</node>
-    <node x="395.0" y="314.0">23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.skill</node>
-    <node x="364.40277777777777" y="157.0">23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.skill_category</node>
+    <node x="499.0" y="124.0">23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.partner</node>
+    <node x="408.5833333333333" y="0.0">23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.partner_type</node>
+    <node x="281.0833333333333" y="314.0">23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.skill</node>
+    <node x="629.5833333333333" y="0.0">23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.team</node>
+    <node x="290.0" y="157.0">23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.skills_level</node>
+    <node x="0.0" y="157.0">23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.skill_category</node>
     <node x="0.0" y="499.0">23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.databasechangelog</node>
   </nodes>
   <notes />
   <edges>
     <edge source="23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.skill" target="23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.skills_level">
-      <point x="68.33333333333331" y="-70.0" />
-      <point x="565.8333333333333" y="289.0" />
-      <point x="748.9027777777778" y="289.0" />
+      <point x="0.0" y="-70.0" />
       <point x="0.0" y="37.0" />
     </edge>
     <edge source="23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.skill" target="23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.skill_category">
-      <point x="0.0" y="-70.0" />
-      <point x="497.5" y="289.0" />
-      <point x="499.40277777777777" y="289.0" />
+      <point x="-68.33333333333331" y="-70.0" />
+      <point x="315.25" y="289.0" />
+      <point x="135.0" y="289.0" />
       <point x="0.0" y="37.0" />
     </edge>
     <edge source="23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.skill" target="23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.partner">
-      <point x="-68.33333333333331" y="-70.0" />
-      <point x="429.1666666666667" y="289.0" />
-      <point x="220.40277777777777" y="289.0" />
+      <point x="68.33333333333337" y="-70.0" />
+      <point x="451.9166666666667" y="289.0" />
+      <point x="623.0" y="289.0" />
       <point x="0.0" y="70.0" />
     </edge>
     <edge source="23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.partner" target="23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.team">
-      <point x="-62.0" y="-70.0" />
-      <point x="158.40277777777777" y="99.0" />
-      <point x="105.5" y="99.0" />
+      <point x="62.0" y="-70.0" />
+      <point x="685.0" y="99.0" />
+      <point x="735.0833333333333" y="99.0" />
       <point x="0.0" y="37.0" />
     </edge>
     <edge source="23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.partner" target="23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.partner_type">
-      <point x="62.0" y="-70.0" />
-      <point x="282.40277777777777" y="99.0" />
-      <point x="331.5" y="99.0" />
+      <point x="-62.0" y="-70.0" />
+      <point x="561.0" y="99.0" />
+      <point x="509.0833333333333" y="99.0" />
       <point x="0.0" y="37.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.2969043677416945" x="466.0982800982801" y="105.99262899262897" />
+  <settings layout="Hierarchic Group" zoom="1.1419900444090891" x="417.84817247745536" y="396.3511850610167" />
   <SelectedNodes>
     <node>23d86b48-df1f-4f63-92be-0b5ded68a46f.TABLE:matrix_db.public.skills_level</node>
   </SelectedNodes>

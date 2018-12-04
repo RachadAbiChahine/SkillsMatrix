@@ -52,7 +52,7 @@
         <appender-ref ref="METRIC_FILE" />
     </logger>
 
-    <logger name="com.mycomp.myproj" level="DEBUG" additivity="false">
+    <logger name="com.decathlon.matrix_skills.*" level="DEBUG" additivity="false">
         <appender-ref ref="FILE" />
     </logger>
 
