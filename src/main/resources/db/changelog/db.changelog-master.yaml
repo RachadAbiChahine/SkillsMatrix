@@ -1,0 +1,189 @@
+databaseChangeLog:
+- changeSet:
+    id: 1
+    author: aracha14
+    changes:
+    - createTable:
+        tableName: partner_type
+        columns:
+        - column:
+            name: partner_type_id
+            type: int
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              nullable: false
+        - column:
+            name: type
+            type: varchar(255)
+            constraints:
+              nullable: false
+
+- changeSet:
+    id: 2
+    author: aracha14
+    changes:
+    - createTable:
+        tableName: skills_level
+        columns:
+        - column:
+            name: skills_level_id
+            type: int
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              nullable: false
+        - column:
+            name: level
+            type: varchar(255)
+            constraints:
+              nullable: false
+              unique: true
+              uniqueConstraintName: unique_level
+
+- changeSet:
+    id: 3
+    author: aracha14
+    changes:
+    - createTable:
+        tableName: skill_category
+        columns:
+        - column:
+            name: skill_category_id
+            type: int
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              nullable: false
+        - column:
+            name: skill_category_name
+            type: varchar(255)
+            constraints:
+              nullable: false
+              unique: true
+              uniqueConstraintName: unique_skill_category_name
+
+- changeSet:
+    id: 4
+    author: aracha14
+    changes:
+    - createTable:
+        tableName: team
+        columns:
+        - column:
+            name: team_id
+            type: int
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              nullable: false
+        - column:
+            name: team_name
+            type: varchar(255)
+            constraints:
+              nullable: false
+
+
+
+- changeSet:
+    id: 5
+    author: aracha14
+    changes:
+    - createTable:
+        tableName: partner
+        columns:
+        - column:
+            name: partner_id
+            type: int
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              nullable: false
+        - column:
+            name: partner_name
+            type: varchar(255)
+            constraints:
+              nullable: false
+        - column:
+            name: partner_surname
+            type: varchar(255)
+            constraints:
+              nullable: false
+        - column:
+            name: team
+            type: int
+            constraints:
+              nullable: true
+              foreignKeyName: fk_partner_team
+              references: team(team_id)
+        - column:
+            name: partner_type
+            type: int
+            constraints:
+              nullable: true
+              foreignKeyName: fk_partner_type
+              references: partner_type(partner_type_id)
+
+- changeSet:
+    id: 6
+    author: aracha14
+    changes:
+    - createTable:
+        tableName: skill
+        columns:
+        - column:
+            name: skill_id
+            type: int
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              nullable: false
+        - column:
+            name: skill_name
+            type: varchar(255)
+            constraints:
+              nullable: false
+        - column:
+            name: skill_level
+            type: int
+            constraints:
+              nullable: false
+              foreignKeyName: fk_skills_level
+              references: skills_level(skills_level_id)
+        - column:
+            name: skill_owner
+            type: int
+            constraints:
+              nullable: false
+              foreignKeyName: fk_skill_owner
+              references: partner(partner_id)
+        - column:
+            name: skill_category
+            type: int
+            constraints:
+              nullable: false
+              foreignKeyName: fk_skill_category
+              references: skill_category(skill_category_id)
+
+- changeSet:
+    id: 7
+    author: aracha14
+    changes:
+    - createSequence:
+        incrementBy: 1
+        schemaName: public
+        sequenceName: hibernate_sequence
+        startValue: 1
+        minValue: 0
+
+- changeSet:
+    id: 7
+    author: aracha14
+    changes:
+    - createSequence:
+        incrementBy: 1
+        schemaName: public
+        sequenceName: hibernate_sequence
+        startValue: 1
+        minValue: 0
+

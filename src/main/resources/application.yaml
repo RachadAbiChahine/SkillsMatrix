@@ -1,0 +1,29 @@
+## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
+spring:
+    application:
+       name:employee-service
+    datasource:
+        url:jdbc:postgresql://localhost:5432/matrix_db
+        platform:POSTGRESQL
+        username:matrix_ro
+        password:matrix_ro
+    jpa:
+        hibernate:
+            ddl-auto:create-drop
+            dialect:org.hibernate.dialect.PostgreSQL9Dialect
+            show_sql:true
+            format_sql:true
+
+    liquibase:
+        enabled: true
+        change-log: classpath:/db/changelog/db.changelog-master.yaml
+    jackson:
+        default-property-inclusion: non_null
+
+server:
+    port:8080
+
+security.basic.enable: false
+
+
+
