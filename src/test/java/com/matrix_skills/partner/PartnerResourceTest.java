@@ -4,6 +4,7 @@ import com.matrix_skills.common.Constants;
 import com.matrix_skills.partner.dto.PartnerDTO;
 import com.matrix_skills.partner.dto.PartnerResponseDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.Ignore;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -87,7 +88,6 @@ class PartnerResourceTest {
         mockMvc.perform(patch(Constants.API_BASE_PATH + "/partner/" + "ec1").content(objectMapper.writeValueAsString(partnerDTO)))
                 .andDo(print())
                 .andExpect(status().isBadRequest())
-        //.andExpect(jsonPath("message"))
         ;
     }
 
@@ -98,8 +98,14 @@ class PartnerResourceTest {
         partnerResponseDTO.setSurname(SURNAME);
         partnerResponseDTO.setName(NAME);
         partnerResponseDTO.setId(1L);
+
+        PartnerDTO partnerDTO = new PartnerDTO();
+        partnerDTO.setSurname(SURNAME);
+        partnerDTO.setName(NAME);
+
         when(partnerService.editPartner(anyLong(),any())).thenReturn(partnerResponseDTO);
-        mockMvc.perform(patch(Constants.API_BASE_PATH + "/partner/1"))
+        mockMvc.perform(patch(Constants.API_BASE_PATH + "/partner/1").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
+                .content(objectMapper.writeValueAsString(partnerDTO)))
                 .andDo(print())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(status().isOk())
