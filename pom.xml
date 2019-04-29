@@ -171,6 +171,7 @@
                             <goal>monitor</goal>
                         </goals>
                     </execution>
+
                 </executions>
                 <configuration>
                     <apiToken>${SNYK_API_TOKEN}</apiToken>
