@@ -47,7 +47,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.1.1</version>
+            <version>42.2.5</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
@@ -176,7 +176,7 @@
                 <configuration>
                     <apiToken>${SNYK_API_TOKEN}</apiToken>
                     <failOnSeverity>medium</failOnSeverity>
-                    <org></org>
+                    <org/>
                 </configuration>
             </plugin>
 
