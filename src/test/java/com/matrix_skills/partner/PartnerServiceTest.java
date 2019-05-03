@@ -14,6 +14,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -22,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = Application.class)
 @AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
-@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
+@Transactional
 class PartnerServiceTest {
 
     public static final String NAME = "BOB";
@@ -47,7 +48,6 @@ class PartnerServiceTest {
     void addPartner() {
         PartnerResponseDTO partnerResponseDTO = partnerService.addPartner(partnerRequest);
         assertEquals(partnerRequest.getName(), partnerResponseDTO.getName());
-        assertEquals(Long.valueOf(1L).intValue(), partnerResponseDTO.getId().intValue());
     }
 
     @Test
