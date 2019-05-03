@@ -2,8 +2,7 @@ package com.matrix_skills.partner;
 
 import com.matrix_skills.Skill.Skill;
 import com.matrix_skills.team.Team;
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
+import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -11,6 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "partner")
+@Data
 public class Partner {
 
     @Id
@@ -38,83 +38,6 @@ public class Partner {
     @JoinColumn(name = "skill_owner")
     private List<Skill> skills;
 
-    public Long getPartnerId() {
-        return partnerId;
-    }
-
-    public void setPartnerId(Long partnerId) {
-        this.partnerId = partnerId;
-    }
-
-    public PartnerType getEnumPartnerType() {
-        return enumPartnerType;
-    }
-
-    public void setEnumPartnerType(PartnerType enumPartnerType) {
-        this.enumPartnerType = enumPartnerType;
-    }
-
-    public Team getTeam() {
-        return team;
-    }
-
-    public void setTeam(Team team) {
-        this.team = team;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public List<Skill> getSkills() {
-        return skills;
-    }
-
-    public void setSkills(List<Skill> skills) {
-        this.skills = skills;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-
-        if (!(o instanceof Partner)) return false;
-
-        Partner partner = (Partner) o;
-
-        return new EqualsBuilder()
-                .append(partnerId, partner.partnerId)
-                .append(getName(), partner.getName())
-                .append(getSurname(), partner.getSurname())
-                .append(getEnumPartnerType(), partner.getEnumPartnerType())
-                .append(team, partner.team)
-                .append(getSkills(), partner.getSkills())
-                .isEquals();
-    }
-
-    @Override
-    public int hashCode() {
-        return new HashCodeBuilder(17, 37)
-                .append(partnerId)
-                .append(getName())
-                .append(getSurname())
-                .append(getEnumPartnerType())
-                .append(team)
-                .append(getSkills())
-                .toHashCode();
-    }
 
 
 }

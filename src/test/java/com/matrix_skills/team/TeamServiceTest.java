@@ -33,6 +33,7 @@ public class TeamServiceTest {
     public static final String TEAM_NAME = "toto";
     public static final String TEAM_ALREADY_EXIST = "Team already Exist";
     public static final String TEAM_NOT_FOUND = "Team not found";
+
     @Autowired
     private TeamService teamService;
 
