@@ -13,6 +13,8 @@ import java.util.List;
 @Data
 public class Partner {
 
+    
+    
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     @Column(name = "partner_id")
